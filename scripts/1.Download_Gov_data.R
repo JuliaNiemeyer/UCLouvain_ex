@@ -6,12 +6,15 @@
 
 
 ##########################################################################
-## 1. Load libraries
-
+## 1. Install and load libraries
+# install.packages("tidyverse")
+library(tidyverse)
 
 ## 2. Load data from API Compras Governamentais
+# Frigorificos
+frigo <- read_csv("https://compras.dados.gov.br/fornecedores/v1/fornecedores.csv?id_cnae=1011201")
 
-#https://compras.dados.gov.br/fornecedores/v1/fornecedores.html?id_cnae=1011201
+
 
 ## 3. Clean and organise tables
 

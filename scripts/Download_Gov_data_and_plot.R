@@ -25,14 +25,13 @@ prep <- read_csv("https://compras.dados.gov.br/fornecedores/v1/fornecedores.csv?
 # merge tables
 merged <- bind_rows(frigo, matad, fab, prep)
 
-
-######## 3. Create barchart
 ## group by UF and count how many suppliers each one has
 id_per_UF <- merged %>%
   group_by(UF) %>%
   summarise(unique_ids = n_distinct(Id))
 
-# create barplot of the total number of suppliers
+######## 3. Create barchart
+# 3.1. create barplot of the total number of suppliers
 plot <- id_per_UF %>%
   ggplot(aes(x = UF, y = unique_ids)) +
   geom_bar(stat = "identity", fill = "darkgreen") +
@@ -47,11 +46,11 @@ plot <- id_per_UF %>%
   ) 
 
 
-##5. Export barplot as image
+## Export barplot as image
 ggsave("./results/Suppliers_state.jpeg", plot, width = 8, height = 6, dpi = 400)
 
 
-### 6. Second option of barplot - the higher the nu,ber o supplier, the darker the green
+###3.2. Create a second option of barplot - the higher the number of supplier, the darker the green
 plot2 <- ggplot(id_per_UF, aes(x = UF, y = unique_ids, fill = unique_ids)) +
   geom_bar(stat = "identity") +
   scale_fill_gradient(low = "lightgreen", high = "darkgreen") +
@@ -65,6 +64,6 @@ plot2 <- ggplot(id_per_UF, aes(x = UF, y = unique_ids, fill = unique_ids)) +
     legend.text = element_text(size = 10)  # Customize legend text appearance
   ) 
 
-##7. Export barplot as image
+## Export barplot as image
 ggsave("./results/Suppliers_state_2.jpeg", plot2, width = 10, height = 6, dpi = 400)
 

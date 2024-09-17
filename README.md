@@ -8,11 +8,6 @@ This project is an exercise for the Researcher/Data Scientist position at the **
 ## Date
 17/09/2024
 
-<<<<<<< HEAD
-=======
-## Project Description
-This project is developed as part of the application process for a Researcher/Data Scientist position. The project focuses on demonstrating relevant skills and expertise required for the role, including data manipulation, analysis, and visualization using R and other tools.
-
 
 ## Requirements
 - R (version 4.0 or higher)

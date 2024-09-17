@@ -45,6 +45,12 @@ plot <- id_per_UF %>%
     legend.position = "none"  # Remove the legend
   ) 
 
+##creates a results folder if necessary
+if (!dir.exists("./results")) {
+  # Create the directory
+  dir.create("./results")
+  cat("Directory './results' created.\n")
+}
 
 ## Export barplot as image
 ggsave("./results/Suppliers_state.jpeg", plot, width = 8, height = 6, dpi = 400)

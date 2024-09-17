@@ -8,11 +8,11 @@ This project is an exercise for the Researcher/Data Scientist position at the **
 ## Date
 17/09/2024
 
-## Structure
-- `tables/`: Contains the datasets downoaded from the API Compras Governamentais using Script 1.
-- `scripts/`: Includes R scripts for data analysis, manipulation, and visualization.
-- `results/`: Holds the results and visual outputs generated during the project.
-- `README.md`: This document, providing an overview of the project.
+<<<<<<< HEAD
+=======
+## Project Description
+This project is developed as part of the application process for a Researcher/Data Scientist position. The project focuses on demonstrating relevant skills and expertise required for the role, including data manipulation, analysis, and visualization using R and other tools.
+
 
 ## Requirements
 - R (version 4.0 or higher)

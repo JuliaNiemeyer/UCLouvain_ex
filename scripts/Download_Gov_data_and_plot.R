@@ -41,7 +41,8 @@ plot <- id_per_UF %>%
     plot.title = element_text(face = "bold", size = 20, hjust = 0.5),  
     axis.title = element_text(face = "bold"), 
     axis.text = element_text(color = "gray20"),
-    #legend.position = element_blank(),
+    panel.grid.major = element_blank(),  
+    panel.grid.minor = element_blank(),
     legend.position = "none"  # Remove the legend
   ) 
 
@@ -59,7 +60,14 @@ ggsave("./results/Suppliers_state.jpeg", plot, width = 8, height = 6, dpi = 400)
 ###3.2. Create a second option of barplot - the higher the number of supplier, the darker the green
 plot2 <- ggplot(id_per_UF, aes(x = UF, y = unique_ids, fill = unique_ids)) +
   geom_bar(stat = "identity") +
-  scale_fill_gradient(low = "lightgreen", high = "darkgreen") +
+  #scale_fill_gradient(low = "lightgreen", high = "darkgreen") +
+  scale_fill_gradient2(
+    low = "white", 
+    mid = "orange", 
+    high = "darkgreen", 
+    midpoint = median(id_per_UF$unique_ids),  # Adjust midpoint based on your data
+    name = "Number of suppliers"
+  ) +
   labs(title = "Suppliers per state", x = "States", y = "Number of suppliers", fill = "Number of suppliers") +
   theme_minimal(base_size = 15) +  
   theme(
@@ -67,7 +75,9 @@ plot2 <- ggplot(id_per_UF, aes(x = UF, y = unique_ids, fill = unique_ids)) +
     axis.title = element_text(face = "bold", size = 10), 
     axis.text = element_text(color = "gray20", size = 10),
     legend.title = element_text(size = 12, face = "bold"),  # Customize legend title appearance
-    legend.text = element_text(size = 10)  # Customize legend text appearance
+    legend.text = element_text(size = 10), # Customize legend text appearance
+    panel.grid.major = element_blank(),  
+    panel.grid.minor = element_blank() 
   ) 
 
 ## Export barplot as image
